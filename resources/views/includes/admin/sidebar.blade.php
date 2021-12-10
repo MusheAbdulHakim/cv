@@ -9,7 +9,16 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        
+
+        @can('view-contacts')
+        <li>
+            <a href="{{route('contacts.index')}}" class=" waves-effect">
+                <i class="mdi mdi-email"></i>
+                <span>Contacts</span>
+            </a>
+        </li>
+        @endcan
+                
 
         <li class="menu-title">Authentication</li>
         @can('view-authentication')
