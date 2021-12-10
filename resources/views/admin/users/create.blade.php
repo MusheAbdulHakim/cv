@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('page-css')
-    <link rel="stylesheet" href="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}">
+
 @endpush
 
 @section('content')
@@ -17,6 +17,5 @@
 @endsection
 
 @push('page-js')
-    <script src="{{asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
-    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
+    
 @endpush
