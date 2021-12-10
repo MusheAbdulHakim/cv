@@ -22,7 +22,6 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
-                            <th>Message</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -48,7 +47,6 @@
                     {data: 'name', name: 'name'},
                     {data: 'email', name: 'email'},
                     {data: 'subject', name: 'subject'},
-                    {data: 'message', name: 'message', orderable: false, searchable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
