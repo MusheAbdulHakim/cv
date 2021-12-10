@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Forms\ContactForm;
 use App\Models\Contact;
+use App\Forms\ContactForm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\SendContactNotification;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -26,14 +27,18 @@ class ContactController extends Controller
                     
                     ->addColumn('action',function ($row){
                         $editbtn = '<a href="'.route('contacts.edit',$row->id).'" class="edit"><button class="btn btn-primary"><i class="fas fa-edit"></i></button></a>';
+                        $viewbtn = '<a href="'.route('contacts.show',$row->id).'" class="view"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>';
                         $deletebtn = '<a data-id="'.$row->id.'" data-route="'.route('contacts.destroy',$row->id).'" href="javascript:void(0)" id="deletebtn"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></a>';
                         if(!auth()->user()->hasPermissionTo('edit-contact')){
                             $editbtn = '';
                         }
+                        if(!auth()->user()->hasPermissionTo('view-contacts')){
+                            $viewbtn = '';
+                        }
                         if(!auth()->user()->hasPermissionTo('destroy-contact')){
                             $deletebtn = '';
                         }
-                        $btn = $editbtn.' '.$deletebtn;
+                        $btn = $editbtn.' '. $viewbtn.' '.$deletebtn;
                         return $btn;
                     })
                     ->rawColumns(['action'])
@@ -73,12 +78,13 @@ class ContactController extends Controller
     {
         $form = $formBuilder->create(ContactForm::class);
         $form->redirectIfNotValid();  
-        Contact::create([
+        $contact = Contact::create([
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
         ]);
+        event(new SendContactNotification($contact));
         $notification = notify('contact created successfully');
         return redirect()->route('contacts.index')->with($notification);
     }
@@ -102,6 +108,31 @@ class ContactController extends Controller
             'title','form'
         ));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param   \Kris\LaravelFormBuilder\FormBuilder $formBuilder
+     * 
+     * @param  \app\Models\Contact $contact
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FormBuilder $formBuilder, Contact $contact)
+    {
+        $title = 'view contact';
+        $form = $formBuilder->create('App\Forms\ContactForm', [
+            'url' => route('contacts.update',$contact),
+            'model' => $contact,
+        ]);
+        $form->remove('submit');
+        $form->disableFields();
+        $contact->unReadNotifications->markAsRead();
+        
+        return view('admin.contact.show',compact(
+            'title','form',
+        ));
+    }
+
 
     /**
      * Update the specified resource in storage.
