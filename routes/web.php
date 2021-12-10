@@ -12,6 +12,9 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\FilemanagerController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +46,12 @@ Route::prefix('admin')->group(function () {
         Route::post('profile/{user}/update-profile',[UserController::class,'updateProfile'])->name('profile.update');
         Route::post('profile/{user}/change-password',[UserController::class,'updatePassword'])->name('profile.updatePassword');
         Route::get('settings',[SettingController::class,'index'])->name('settings');
+
+        Route::get('notification/markasread',[NotificationController::class,'markAsRead'])->name('mark-as-read');
     
         Route::resource('roles', RoleController::class);
         Route::resource('users',UserController::class);
+        Route::resource('contacts',ContactController::class);
     
         Route::get('backup', [BackupController::class,'index'])->name('backup.index');
         Route::put('backup/create', [BackupController::class,'create'])->name('backup.store');
@@ -64,6 +70,11 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::get('/',function(){
-    return view('welcome');
-});
+// Route::get('/',function(){
+//     return view('welcome');
+// });
+
+Route::get('home',[HomeController::class,'index'])->name('home');
+Route::get('',[HomeController::class,'index']);
+
+Route::post('contact',[HomeController::class,'createContact'])->name('contact.submit');
