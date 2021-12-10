@@ -4,6 +4,10 @@
     
 @endpush
 
+@section('breadcrumb')
+
+@endsection
+
 @section('content')
     
 @endsection
