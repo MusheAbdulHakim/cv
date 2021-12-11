@@ -31,7 +31,7 @@ class ContactMessage extends Notification
      */
     public function via($notifiable)
     {
-        return ['database','broadcast','mail'];
+        return ['database','broadcast'];
     }
 
     /**
