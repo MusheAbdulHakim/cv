@@ -209,6 +209,110 @@ input[type="submit"]:focus {
 }
 
 
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem; }
+
+.alert-heading {
+  color: inherit; }
+
+.alert-link {
+  font-weight: 600; }
+
+.alert-dismissible {
+  padding-right: 3.8125rem; }
+  .alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit; }
+
+.alert-primary {
+  color: #1f3078;
+  background-color: #d8dffa;
+  border-color: #c8d2f8; }
+  .alert-primary hr {
+    border-top-color: #b1bff5; }
+  .alert-primary .alert-link {
+    color: #15204f; }
+
+.alert-secondary {
+  color: #464657;
+  background-color: #e7e7ed;
+  border-color: #dddde6; }
+  .alert-secondary hr {
+    border-top-color: #cecedb; }
+  .alert-secondary .alert-link {
+    color: #2f2f3b; }
+
+.alert-success {
+  color: #246a45;
+  background-color: #daf5e7;
+  border-color: #cbf0dd; }
+  .alert-success hr {
+    border-top-color: #b7ead0; }
+  .alert-success .alert-link {
+    color: #17442c; }
+
+.alert-info {
+  color: #065872;
+  background-color: #ceeef8;
+  border-color: #bbe7f5; }
+  .alert-info hr {
+    border-top-color: #a5dff2; }
+  .alert-info .alert-link {
+    color: #033342; }
+
+.alert-warning {
+  color: #7c6001;
+  background-color: #fcf1cc;
+  border-color: #faebb8; }
+  .alert-warning hr {
+    border-top-color: #f8e4a0; }
+  .alert-warning .alert-link {
+    color: #493901; }
+
+.alert-danger {
+  color: #853b2f;
+  background-color: #ffe3de;
+  border-color: #ffd7d1; }
+  .alert-danger hr {
+    border-top-color: #ffc1b8; }
+  .alert-danger .alert-link {
+    color: #5f2a22; }
+
+.alert-light {
+  color: #7c7e80;
+  background-color: #fcfcfd;
+  border-color: #fbfbfd; }
+  .alert-light hr {
+    border-top-color: #eaeaf5; }
+  .alert-light .alert-link {
+    color: #636566; }
+
+.alert-dark {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca; }
+  .alert-dark hr {
+    border-top-color: #b9bbbe; }
+  .alert-dark .alert-link {
+    color: #040505; }
+
+.alert-pink {
+  color: #792049;
+  background-color: #fad8e8;
+  border-color: #f9c9df; }
+  .alert-pink hr {
+    border-top-color: #f6b2d1; }
+  .alert-pink .alert-link {
+    color: #511531; }
+
+
 
 /* ============================================================================= 
 3. Page loadig animation
@@ -1456,9 +1560,9 @@ textarea.form-control, textarea.form-control:focus {
 }
 /* --- End of Contact Form --- */
 
-.map {
+.map iframe{
   width: 100%;
-  height: 140px;
+  height: 145px;
   margin: 0 0 35px;
 }
 

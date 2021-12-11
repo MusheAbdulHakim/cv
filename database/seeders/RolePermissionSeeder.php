@@ -21,6 +21,8 @@ class RolePermissionSeeder extends Seeder
             
             'view-backups','create-backup','download-backup','destroy-backup',
             'view-authentication','view-settings',
+            'view-contacts','create-contact','edit-contact','destroy-contact',
+            'view-about','create-about','edit-about','destroy-about',
             'view-users','create-user','edit-user','destroy-user',
             'view-roles','create-role','edit-role','destroy-role',
             'view-permissions','create-permission','edit-permission','destroy-permission',
