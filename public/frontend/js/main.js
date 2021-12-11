@@ -7,6 +7,11 @@
 
 (function($) {
 "use strict";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     // Portfolio subpage filters
     function portfolio_init() {
         var portfolio_grid = $('.portfolio-grid'),
