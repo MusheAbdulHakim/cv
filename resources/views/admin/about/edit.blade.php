@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('page-css')
-    
+<link rel="stylesheet" href="{{asset('assets/libs/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.css')}}">
 @endpush
 
 @section('content')
@@ -16,5 +16,5 @@
 @endsection
 
 @push('page-js')
-    
+<script src="{{asset('assets/libs/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.js')}}"></script>
 @endpush
