@@ -44,8 +44,8 @@
                 <img src="{{asset('frontend/img/main_photo.jpg')}}" alt="Alex Smith" />
               </div>
               <div class="header-titles">
-                <h2>Alex Smith</h2>
-                <h4>Web Designer</h4>
+                <h2>{{$about->name}}</h2>
+                <h4>{{explode(',',$about->subtitle)[0]}}</h4>
               </div>
             </div>
   
@@ -92,6 +92,11 @@
               <ul>
                 <li>
                   <a href="#" target="_blank"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" target="_blank"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                 </li>
@@ -107,10 +112,10 @@
             </div>
   
             <div class="header-buttons">
-              <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+              <a download href="{{asset('storage/cv/'.$about->cv)}}" target="_blank" class="btn btn-primary">Download CV</a>
             </div>
   
-            <div class="copyrights">© 2020 All rights reserved.</div>
+            <div class="copyrights">Copyright &copy; {{Date('Y')}} All rights reserved.</div>
           </header>
   
           <!-- Mobile Navigation -->
@@ -143,7 +148,6 @@
 <script src="{{asset('frontend/js/animating.js')}}"></script>
 
 <script src="{{asset('frontend/js/imagesloaded.pkgd.min.js')}}"></script>
-<script src="{{asset('frontend/js/api.js')}}"></script>
 
 <script src="{{asset('frontend/js/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.shuffle.min.js')}}"></script>
@@ -151,9 +155,8 @@
 <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.magnific-popup.min.js')}}"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
-<script src="{{asset('frontend/js/jquery.googlemap.js')}}"></script>
 <script src="{{asset('frontend/js/validator.js')}}"></script>
 <script src="{{asset('frontend/js/main.js')}}"></script>
 @stack('page-js')
+
 </html>

@@ -12,15 +12,14 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="title-block">
-              <h2>Alex Smith</h2>
+              <h2>{{$about->name}}</h2>
               <div class="owl-carousel text-rotation">
+                @foreach (explode(',',$about->subtitle) as $item)
                 <div class="item">
-                  <div class="sp-subtitle">Web Designer</div>
+                  <div class="sp-subtitle">{{$item}}</div>
                 </div>
-
-                <div class="item">
-                  <div class="sp-subtitle">Frontend-developer</div>
-                </div>
+                @endforeach
+                
               </div>
             </div>
           </div>
@@ -39,14 +38,8 @@
         <!-- Personal Information -->
         <div class="row">
           <div class="col-xs-12 col-sm-7">
-            <p>
-              Proin volutpat mauris ac pellentesque pharetra.
-              Suspendisse congue elit vel odio suscipit, sit amet tempor
-              nisl imperdiet. Quisque ex justo, faucibus ut mi in,
-              condimentum finibus dolor. Aliquam vitae hendrerit dolor,
-              eget imperdiet mauris. Maecenas et ante id ipsum
-              condimentum dictum et vel massa. Ut in imperdiet dolor,
-              vel consectetur dui.
+            <p id="about_me">
+             {{$about->intro}}
             </p>
           </div>
 
@@ -55,27 +48,27 @@
               <ul>
                 <li>
                   <span class="title">Age</span>
-                  <span class="value">32</span>
+                  <span class="value" id="my_age">{{$about->age}}</span>
                 </li>
 
                 <li>
                   <span class="title">Residence</span>
-                  <span class="value">USA</span>
+                  <span class="value" id="my_residence">{{$about->residence}}</span>
                 </li>
 
                 <li>
                   <span class="title">Address</span>
-                  <span class="value">88 Some Street, Some Town</span>
+                  <span class="value" id="my_address">{{$about->address}}</span>
                 </li>
 
                 <li>
                   <span class="title">e-mail</span>
-                  <span class="value">email@example.com</span>
+                  <span class="value" id="my_email">{{$about->email}}</span>
                 </li>
 
                 <li>
                   <span class="title">Phone</span>
-                  <span class="value">+0123 123 456 789</span>
+                  <span class="value" id="my_phone">{{$about->phone}}</span>
                 </li>
               </ul>
             </div>
@@ -412,7 +405,7 @@
             <div class="fun-fact gray-default">
               <i class="lnr lnr-heart"></i>
               <h4>Happy Clients</h4>
-              <span class="fun-fact-block-value">578</span>
+              <span class="fun-fact-block-value" id="happy_clients">{{$about->happy_clients}}</span>
               <span class="fun-fact-block-text"></span>
             </div>
           </div>
@@ -421,7 +414,7 @@
             <div class="fun-fact gray-default">
               <i class="lnr lnr-clock"></i>
               <h4>Working Hours</h4>
-              <span class="fun-fact-block-value">4,780</span>
+              <span class="fun-fact-block-value" id="working_hours">{{$about->working_hours}}</span>
               <span class="fun-fact-block-text"></span>
             </div>
           </div>
@@ -430,7 +423,7 @@
             <div class="fun-fact gray-default">
               <i class="lnr lnr-star"></i>
               <h4>Awards Won</h4>
-              <span class="fun-fact-block-value">15</span>
+              <span class="fun-fact-block-value" id="awards">{{$about->awards}}</span>
               <span class="fun-fact-block-text"></span>
             </div>
           </div>
@@ -1124,7 +1117,10 @@
 
           <!-- Contact Form -->
           <div class="col-xs-12 col-sm-8">
-            <div id="map" class="map"></div>
+            <div id="map" class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.024378856124!2d-0.8768382852104187!3d9.419262993250749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfd43c54df4ce9dd%3A0x8311c32d90f0eeb8!2sSagnarigu%20Chief%20Palace!5e0!3m2!1sen!2sgh!4v1639190259261!5m2!1sen!2sgh"  allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
             <div class="block-title">
               <h3>How Can I <span>Help You?</span></h3>
             </div>
@@ -1204,17 +1200,8 @@
                   </div>
                 </div>
 
-                <!-- <div
-                  class="g-recaptcha"
-                  data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI"
-                  data-theme="dark"
-                ></div> -->
-
-                <input
-                  type="submit"
-                  class="button btn-send"
-                  value="Send message"
-                />
+               
+                <button class="button btn-send" type="submit">Send Message</button>
               </div>
             </form>
           </div>
@@ -1227,35 +1214,31 @@
 @endpush
 
 @push('page-js')
-<script>
+  <script>
     $(document).ready(function(){
+        
         $('#contact_form').validator();
         $('#contact_form').on('submit',function(e){
             if (!e.isDefaultPrevented()) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            var url = "{{route('contact.submit')}}";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: $(this).serialize(),
-                success: function (data)
-                {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
-    
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        $('#contact_form').find('.messages').html(alertBox);
-                        $('#contact_form')[0].reset();
-                    }
-                }
-            });
-            return false;
-            
+              var url = "{{route('contact.submit')}}";
+              $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: $(this).serialize(),
+                  success: function (data)
+                  {
+                      var messageAlert = 'alert-' + data.type;
+                      var messageText = data.message;
+      
+                      var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable" role="alert">' + messageText + '</div>';
+                      if (messageAlert && messageText) {
+                          $('#contact_form').find('.messages').html(alertBox);
+                          $('#contact_form')[0].reset();
+                      }
+                      
+                  }
+              });
+              return false;
             }
     
         });

@@ -20,7 +20,7 @@ class RolePermissionSeeder extends Seeder
         $arrayOfPermissionNames = [
             
             'view-backups','create-backup','download-backup','destroy-backup',
-            'view-authentication','view-settings',
+            'view-authentication','view-settings','view-logs',
             'view-contacts','create-contact','edit-contact','destroy-contact',
             'view-about','create-about','edit-about','destroy-about',
             'view-users','create-user','edit-user','destroy-user',

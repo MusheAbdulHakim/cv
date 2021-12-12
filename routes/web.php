@@ -4,17 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\FilemanagerController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,11 +53,16 @@ Route::prefix('admin')->group(function () {
         Route::resource('roles', RoleController::class);
         Route::resource('users',UserController::class);
         Route::resource('contacts',ContactController::class);
+        Route::resource('about', AboutController::class);
+
     
         Route::get('backup', [BackupController::class,'index'])->name('backup.index');
         Route::put('backup/create', [BackupController::class,'create'])->name('backup.store');
         Route::get('backup/download/{file_name?}', [BackupController::class,'download'])->name('backup.download');
         Route::delete('backup/delete/{file_name?}', [BackupController::class,'destroy'])->where('file_name', '(.*)')->name('backup.destroy');
+
+        Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
+
     });
 
     Route::middleware(['guest'])->group(function () {
@@ -70,11 +76,10 @@ Route::prefix('admin')->group(function () {
 
 });
 
-// Route::get('/',function(){
-//     return view('welcome');
-// });
 
 Route::get('home',[HomeController::class,'index'])->name('home');
 Route::get('',[HomeController::class,'index']);
+
+Route::get('about',[AboutController::class,'getAbout'])->name('about.data');
 
 Route::post('contact',[HomeController::class,'createContact'])->name('contact.submit');

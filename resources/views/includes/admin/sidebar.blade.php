@@ -9,6 +9,14 @@
                 <span>Dashboard</span>
             </a>
         </li>
+        @can('view-contacts')
+        <li>
+            <a href="{{route('about.index')}}" class=" waves-effect">
+                <i class="fa fa-user"></i>
+                <span>About</span>
+            </a>
+        </li>
+        @endcan
 
         @can('view-contacts')
         <li>
@@ -62,6 +70,14 @@
                 <li><a href="{{route('settings')}}">General Setting</a></li>
                @endcan
             </ul>
-        
+        </li>
+        @can('view-logs')
+        <li>
+            <a href="{{route('logs')}}" class=" waves-effect">
+                <i class="fa fa-log"></i>
+                <span>Logs</span>
+            </a>
+        </li>
+        @endcan
     </ul>
 </div>
