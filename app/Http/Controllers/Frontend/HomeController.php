@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Events\SendContactNotification;
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Contact;
 use App\Notifications\ContactMessage;
 use Illuminate\Http\Request;
@@ -11,7 +12,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view('frontend.home');
+        $about = About::first();
+        return view('frontend.home',compact(
+            'about'
+        ));
     }
 
     public function createContact(Request $request){

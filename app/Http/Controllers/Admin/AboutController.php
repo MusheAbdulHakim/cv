@@ -106,6 +106,8 @@ class AboutController extends Controller
             'working_hours' => $request->working_hours,
             'awards' => $request->awards,
             'cv' => $cv,
+            'subtitle' => $request->subtitle,
+            'social_links' => $request->social_links,
         ]);
         $notification = 'about info has been added';
         return redirect()->route('about.index')->with($notification);
@@ -164,8 +166,25 @@ class AboutController extends Controller
     {
         $form = $formBuilder->create(AboutForm::class);
         $form->redirectIfNotValid();
+        $cv = $about->cv;
+        if($request->hasFile('cv')){
+            $cv = time().'.'.$request->cv->extension();
+            $request->cv->move(public_path('storage/cv'), $cv);
+        }
         $about->update([
-
+            'name' => $request->name,
+            'intro' => $request->intro,
+            'age' => $request->age,
+            'residence' => $request->residence,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'happy_clients' => $request->happy_clients,
+            'working_hours' => $request->working_hours,
+            'awards' => $request->awards,
+            'cv' => $cv,
+            'subtitle' => $request->subtitle,
+            'social_links' => $request->social_links,
         ]);
         $notification = notify('about info updated successfully');
         return redirect()->route('about.index')->with($notification);
