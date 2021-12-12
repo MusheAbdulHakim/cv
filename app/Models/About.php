@@ -14,10 +14,11 @@ class About extends Model
     protected $fillable = [
         'intro','name','age','residence','address',
         'email','phone','happy_clients','working_hours',
-        'awards','cv','social_links'
+        'awards','cv','social_links','subtitle'
     ];
 
     protected $casts = [
-        'social_links'=> 'array'
+        'social_links'=> 'array',
+        'subtitle' => 'array',
     ];
 }
