@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -54,6 +55,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('users',UserController::class);
         Route::resource('contacts',ContactController::class);
         Route::resource('about', AboutController::class);
+        Route::resource('clients', ClientController::class);
 
     
         Route::get('backup', [BackupController::class,'index'])->name('backup.index');
