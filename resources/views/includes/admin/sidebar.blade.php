@@ -26,6 +26,15 @@
             </a>
         </li>
         @endcan
+
+        @can('view-clients')
+        <li>
+            <a href="{{route('clients.index')}}" class=" waves-effect">
+                <i class="fas fa-users"></i>
+                <span>Clients</span>
+            </a>
+        </li>
+        @endcan
                 
 
         <li class="menu-title">Authentication</li>
