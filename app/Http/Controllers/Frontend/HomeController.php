@@ -6,6 +6,7 @@ use App\Events\SendContactNotification;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Resume;
 use App\Notifications\ContactMessage;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class HomeController extends Controller
 {
     public function index(){
         $about = About::first();
+        $resume = Resume::first();
         return view('frontend.home',compact(
-            'about'
+            'about','resume'
         ));
     }
 
