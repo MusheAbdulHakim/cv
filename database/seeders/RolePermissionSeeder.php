@@ -24,6 +24,8 @@ class RolePermissionSeeder extends Seeder
             'view-contacts','create-contact','edit-contact','destroy-contact',
             'view-clients','create-client','edit-client','destroy-client',
             'view-resume','create-resume','edit-resume','destroy-resume',
+            'view-categories','create-category','edit-category','destroy-category',
+            'view-posts','create-post','edit-post','destroy-post',
             'view-about','create-about','edit-about','destroy-about',
             'view-users','create-user','edit-user','destroy-user',
             'view-roles','create-role','edit-role','destroy-role',
