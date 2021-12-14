@@ -20,9 +20,4 @@
 
 @push('page-js')
     <script src="{{asset('assets/libs/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.js')}}"></script>
-    <script>
-        
-        $('input').tagsinput();
-
-    </script>
 @endpush
