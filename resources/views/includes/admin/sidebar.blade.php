@@ -35,6 +35,14 @@
             </a>
         </li>
         @endcan
+        @can('view-resume')
+        <li>
+            <a href="{{route('resume.index')}}" class=" waves-effect">
+                <i class="fas fa-book"></i>
+                <span>Resume</span>
+            </a>
+        </li>
+        @endcan
                 
 
         <li class="menu-title">Authentication</li>

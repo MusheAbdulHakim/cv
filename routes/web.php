@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\FilemanagerController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\Admin\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('contacts',ContactController::class);
         Route::resource('about', AboutController::class);
         Route::resource('clients', ClientController::class);
+        Route::resource('resume',ResumeController::class);
 
     
         Route::get('backup', [BackupController::class,'index'])->name('backup.index');
