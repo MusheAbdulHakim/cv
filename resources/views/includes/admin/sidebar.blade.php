@@ -38,13 +38,27 @@
         @can('view-resume')
         <li>
             <a href="{{route('resume.index')}}" class=" waves-effect">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-graduation-cap"></i>
                 <span>Resume</span>
             </a>
         </li>
         @endcan
-                
-
+        @can('view-categories')
+        <li>
+            <a href="{{route('categories.index')}}" class=" waves-effect">
+                <i class="fas fa-folder"></i>
+                <span>Categories</span>
+            </a>
+        </li>
+        @endcan                
+        @can('view-posts')
+        <li>
+            <a href="{{route('posts.index')}}" class=" waves-effect">
+                <i class="fas fa-book"></i>
+                <span>Posts</span>
+            </a>
+        </li>
+        @endcan    
         <li class="menu-title">Authentication</li>
         @can('view-authentication')
         <li>
