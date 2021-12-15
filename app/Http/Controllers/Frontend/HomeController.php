@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Events\SendContactNotification;
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\About;
-use App\Models\Contact;
 use App\Models\Resume;
-use App\Notifications\ContactMessage;
+use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Notifications\ContactMessage;
+use App\Events\SendContactNotification;
 
 class HomeController extends Controller
 {
@@ -47,6 +48,14 @@ class HomeController extends Controller
 
             
         }
+    }
+
+    public function showPost(Post $post){
+        $about = About::first();
+        $resume = Resume::first();
+        return view('frontend.blog',compact(
+            'post','about','resume',
+        ));
     }
 }
 
