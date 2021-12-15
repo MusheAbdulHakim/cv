@@ -68,12 +68,7 @@
                   <span class="link-text">Resume</span>
                 </a>
               </li>
-              <li>
-                <a href="#portfolio" class="nav-anim">
-                  <span class="menu-icon lnr lnr-briefcase"></span>
-                  <span class="link-text">Portfolio</span>
-                </a>
-              </li>
+              
               <li>
                 <a href="#blog" class="nav-anim">
                   <span class="menu-icon lnr lnr-book"></span>

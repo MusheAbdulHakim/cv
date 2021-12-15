@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ResumeController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -17,7 +20,6 @@ use App\Http\Controllers\Admin\FilemanagerController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
-use App\Http\Controllers\Admin\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('about', AboutController::class);
         Route::resource('clients', ClientController::class);
         Route::resource('resume',ResumeController::class);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('posts', PostController::class);
 
     
         Route::get('backup', [BackupController::class,'index'])->name('backup.index');
@@ -83,7 +87,6 @@ Route::prefix('admin')->group(function () {
 
 Route::get('home',[HomeController::class,'index'])->name('home');
 Route::get('',[HomeController::class,'index']);
-
 Route::get('about',[AboutController::class,'getAbout'])->name('about.data');
-
 Route::post('contact',[HomeController::class,'createContact'])->name('contact.submit');
+Route::get('/{post:title}',[HomeController::class,'showPost'])->name('blog.show');
