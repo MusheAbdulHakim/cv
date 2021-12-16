@@ -41,13 +41,11 @@ class PostController extends Controller
                         if(!auth()->user()->hasPermissionTo('edit-post')){
                             $editbtn = '';
                         }
-                        if(!auth()->user()->hasPermissionTo('view-posts')){
-                            $viewbtn = '';
-                        }
+                        
                         if(!auth()->user()->hasPermissionTo('destroy-post')){
                             $deletebtn = '';
                         }
-                        $btn = $editbtn.' '. $viewbtn.' '.$deletebtn;
+                        $btn = $editbtn.' '.$deletebtn;
                         return $btn;
                     })
                     ->rawColumns(['thumbnail','action'])
@@ -56,6 +54,31 @@ class PostController extends Controller
         return view('admin.posts.index',compact(
             'title'
         ));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getPosts(Request $request){
+        if($request->ajax()){
+            $posts = Post::paginate(4);
+            return response()->json($posts);
+        }else{
+            abort(403, 'Unauthorized action.');
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function searchPost(Request $request){
+
     }
 
     /**
@@ -106,19 +129,7 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with($notification);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \app\Models\Post $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        $title = 'view post';
-        return view('admin.post.show',compact(
-            'title','post'
-        ));
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

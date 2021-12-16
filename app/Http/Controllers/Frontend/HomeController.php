@@ -16,8 +16,9 @@ class HomeController extends Controller
     public function index(){
         $about = About::first();
         $resume = Resume::first();
+        $posts = Post::paginate(4);
         return view('frontend.home',compact(
-            'about','resume'
+            'about','resume','posts'
         ));
     }
 

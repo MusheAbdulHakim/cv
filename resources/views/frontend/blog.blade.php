@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/perfect-scrollbar.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('frontend/css/prism.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}" type="text/css" />
     <script src="{{asset('frontend/js/modernizr.custom.js')}}"></script>
   </head>
@@ -95,22 +96,22 @@
             <div class="social-links">
               <ul>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://github.com/MusheAbdulHakim" target="_blank"
                     ><i class="fab fa-github"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://www.linkedin.com/in/yahuza-mushe-abdul-hakim-2155351a9/" target="_blank"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://web.facebook.com/mushe.abdulhakim.1" target="_blank"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <a href="https://twitter.com/abdul_mushe" target="_blank"><i class="fab fa-twitter"></i></a>
                 </li>
               </ul>
             </div>
@@ -237,5 +238,6 @@
     <script src="{{asset('frontend/js/jquery.magnific-popup.min.js')}}"></script>
 
     <script src="{{asset('frontend/js/validator.js')}}"></script>
+    <script src="{{asset('frontend/js/prism.js')}}"></script>
     <script src="{{asset('frontend/js/main.js')}}"></script>
 </html>

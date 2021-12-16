@@ -41,7 +41,7 @@
           <header id="site_header" class="header mobile-menu-hide">
             <div class="header-content">
               <div class="header-photo">
-                <img src="{{asset('frontend/img/main_photo.jpg')}}" alt="Alex Smith" />
+                <img src="{{asset('frontend/img/my_pic.jpeg')}}" alt="Alex Smith" />
               </div>
               <div class="header-titles">
                 <h2>{{$about->name}}</h2>
@@ -86,22 +86,22 @@
             <div class="social-links">
               <ul>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://github.com/MusheAbdulHakim" target="_blank"
                     ><i class="fab fa-github"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://www.linkedin.com/in/yahuza-mushe-abdul-hakim-2155351a9/" target="_blank"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"
+                  <a href="https://web.facebook.com/mushe.abdulhakim.1" target="_blank"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <a href="https://twitter.com/abdul_mushe" target="_blank"><i class="fab fa-twitter"></i></a>
                 </li>
               </ul>
             </div>
