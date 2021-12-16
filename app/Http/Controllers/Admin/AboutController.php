@@ -107,7 +107,6 @@ class AboutController extends Controller
             'awards' => $request->awards,
             'cv' => $cv,
             'subtitle' => $request->subtitle,
-            'social_links' => $request->social_links,
         ]);
         $notification = 'about info has been added';
         return redirect()->route('about.index')->with($notification);
@@ -184,7 +183,6 @@ class AboutController extends Controller
             'awards' => $request->awards,
             'cv' => $cv,
             'subtitle' => $request->subtitle,
-            'social_links' => $request->social_links,
         ]);
         $notification = notify('about info updated successfully');
         return redirect()->route('about.index')->with($notification);
