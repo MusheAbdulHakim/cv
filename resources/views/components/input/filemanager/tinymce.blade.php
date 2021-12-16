@@ -4,7 +4,7 @@
     
 @endpush
 
-<textarea id="my-textarea" name="{{$name}}">{{$value}}</textarea>
+<textarea rows="20" id="my-textarea" name="{{$name}}">{{$value}}</textarea>
 
 @push('page-js')
 <!--tinymce js-->
@@ -15,7 +15,7 @@
         selector: '#my-textarea',
         plugins: [
           'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-          'searchreplace wordcount visualblocks visualchars code fullscreen',
+          'searchreplace wordcount visualblocks visualchars codesample code fullscreen',
           'insertdatetime media nonbreaking save table directionality',
           'emoticons template paste textpattern',
         ],
