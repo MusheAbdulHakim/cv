@@ -119,11 +119,7 @@ class AboutForm extends Form
                 ],
                 
             ])
-            ->add('social_links', 'text',[
-                'attr' => [
-
-                ]
-            ])
+            
             ->add('submit','submit',[
                 'attr' =>[
                     'class'=> 'btn btn-primary btn-block',
