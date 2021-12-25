@@ -31,3 +31,5 @@
     </div>
     <!-- End of Blog Post -->
 @endforeach
+
+{{$posts->links('pagination::simple-bootstrap-4')}}

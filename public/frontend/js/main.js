@@ -12,29 +12,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    // Portfolio subpage filters
-    function portfolio_init() {
-        var portfolio_grid = $('.portfolio-grid'),
-            portfolio_filter = $('.portfolio-filters');
-            
-        if (portfolio_grid) {
-
-            portfolio_grid.shuffle({
-                speed: 450,
-                itemSelector: 'figure'
-            });
-
-            portfolio_filter.on("click", ".filter", function (e) {
-                portfolio_grid.shuffle('update');
-                e.preventDefault();
-                $('.portfolio-filters .filter').parent().removeClass('active');
-                $(this).parent().addClass('active');
-                portfolio_grid.shuffle('shuffle', $(this).attr('data-group') );
-            });
-
-        }
-    }
-    // /Portfolio subpage filters
+    
 
 
     // Hide Mobile menu
@@ -133,11 +111,7 @@
             $('#blog-sidebar').toggleClass('open');
         });
 
-        // Initialize Portfolio grid
-        var $portfolio_container = $(".portfolio-grid");
-        $portfolio_container.imagesLoaded(function () {
-            portfolio_init(this);
-        });
+        
 
         // Blog grid init
         var $container = $(".blog-masonry");
@@ -279,8 +253,32 @@
                 }
             },
         });
-
-        $("div.alert").delay(3000).slideUp(750);        
+        //contact subpage
+        $("div.alert").delay(3000).slideUp(750); 
+        $('#contact_form').validator();
+        $('#contact_form').on('submit',function(e){
+            if (!e.isDefaultPrevented()) {
+                var url = "/contact";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $(this).serialize(),
+                    success: function (data)
+                    {
+                        var messageAlert = 'alert-' + data.type;
+                        var messageText = data.message;
+        
+                        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable" role="alert">' + messageText + '</div>';
+                        if (messageAlert && messageText) {
+                            $('#contact_form').find('.messages').html(alertBox);
+                            $('#contact_form')[0].reset();
+                        }
+                        
+                    }
+                });
+                return false;
+            }
+          });
     });
 
 })(jQuery);
