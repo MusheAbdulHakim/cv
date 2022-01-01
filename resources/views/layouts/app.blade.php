@@ -61,7 +61,7 @@
 
                     <div class="user-wid text-center py-4">
                         <div class="user-img">
-                            <img src="{{!empty(auth()->user()->avatar) ? asset('storage/users/'.auth()->user()->avatar): asset('assets/images/users/avatar-2.jpg')}}" alt="Avatar" class="avatar-md mx-auto rounded-circle">
+                            <img src="{{!empty(auth()->user()->avatar) ? asset('storage/users/'.auth()->user()->avatar): asset('assets/images/users/avatar-3.jpg')}}" alt="Avatar" class="avatar-md mx-auto rounded-circle">
                         </div>
 
                         <div class="mt-3">
