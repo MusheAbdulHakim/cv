@@ -108,7 +108,7 @@ class AboutController extends Controller
             'cv' => $cv,
             'subtitle' => $request->subtitle,
         ]);
-        $notification = 'about info has been added';
+        $notification = notify('about info has been added');
         return redirect()->route('about.index')->with($notification);
     }
 
