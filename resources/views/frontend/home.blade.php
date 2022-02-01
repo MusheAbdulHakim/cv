@@ -295,6 +295,7 @@
                         <div class="white-space-50"></div>
                   
                         <!-- Clients -->
+                        @if(!empty(App\Models\Client::count()))
                         <div class="row">
                           <div class="col-xs-12 col-sm-12">
                             <div class="block-title">
@@ -318,6 +319,7 @@
                             </div>
                           </div>
                         </div>
+                        @endif
                         <!-- End of Clients -->
                   
                         <div class="white-space-50"></div>
