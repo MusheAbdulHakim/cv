@@ -23,15 +23,15 @@ class AboutFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'intro' => $this->faker->paragraphs(),
-            'age' => $this->faker->random_int(),
+            'intro' => $this->faker->paragraph(3),
+            'age' => random_int(2,3),
             'residence' => $this->faker->country(),
             'address' => $this->faker->address(),
-            'email' => $this->faker->unique()->safeEmail,
+            'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
-            'happy_clients' => $this->faker->random_int(),
-            'working_hours' => $this->faker->random_int(),
-            'awards' => $this->faker->random_int(),
+            'happy_clients' => random_int(2,3),
+            'working_hours' => random_int(2,3),
+            'awards' => random_int(2,3),
             'cv' => null,
             'subtitle' => "Laravel Developer,Backend Developer,Api Developer,FullStack Developer"
         ];
