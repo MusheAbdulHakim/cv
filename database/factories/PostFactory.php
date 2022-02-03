@@ -27,7 +27,7 @@ class PostFactory extends Factory
             'title' => $this->faker->realText(50),
             'slug' => $this->faker->realText(50),
             'thumbnail' => null,
-            'category_id'=> Category::all()->random()->id,
+            'category_id'=> Category::factory(),
             'summary' => $this->faker->sentence(),
             'content' => $this->faker->paragraph(30),
             'tags' => implode(',',$this->faker->randomElements(['UI','Video','Music','Anime','Coding','Python','HTML','CSS','Design'])),
