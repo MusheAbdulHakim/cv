@@ -42,7 +42,7 @@
                   <img src="{{asset('frontend/img/my_pic.jpeg')}}" alt="Alex Smith" />
                 </div>
                 <div class="header-titles">
-                  <h2>{{$about->name}}</h2>
+                  <h2>{{$about->name ?? 'John Doe'}}</h2>
                   <h4>{{explode(',',$about->subtitle)[0]}}</h4>
                 </div>
               </div>
@@ -141,7 +141,7 @@
                         <div class="row">
                           <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="title-block">
-                              <h2>{{$about->name}}</h2>
+                              <h2>{{$about->name ?? "John Doe"}}</h2>
                               <div class="owl-carousel text-rotation">
                                 @foreach (explode(',',$about->subtitle) as $item)
                                 <div class="item">
