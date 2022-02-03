@@ -24,7 +24,7 @@ class ClientFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'image' => null,
+            'logo' => null,
         ];
     }
 }
