@@ -54,7 +54,7 @@ class HomeController extends Controller
     public function showPost(Post $post){
         $about = About::first();
         $resume = Resume::first();
-        return view('frontend.blog',compact(
+        return view('frontend.home',compact(
             'post','about','resume',
         ));
     }
