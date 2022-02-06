@@ -343,7 +343,6 @@ input[type="submit"]:focus {
 
 .pagination {
   display: flex;
-  padding-left: 0;
   list-style: none;
 }
 
