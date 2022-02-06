@@ -7,7 +7,7 @@
     <!-- csrf token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home</title>
-    <link rel="shortcut icon" href="{{asset('frontend/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/reset.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-grid.min.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('frontend/css/animations.css')}}" type="text/css" />
@@ -491,7 +491,7 @@
                             <h2>Blog</h2>
                           </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 mb-md-5">
                           <div class="blog-search right">
                             <input type="search" class="form-control" placeholder="search article">
                           </div>
